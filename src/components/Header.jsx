@@ -7,7 +7,7 @@ import { Container } from './Container';
 
 const HeaderEl = styled.header`
   box-shadow: var(--shadow);
-  background-color: (--colors-ui-base);
+  background-color: var(--colors-ui-base);
 `;
 
 const Wrapper = styled.div`
