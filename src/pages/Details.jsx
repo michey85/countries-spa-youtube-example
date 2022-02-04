@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 import { searchByCountry } from '../config';
 import { Button } from '../components/Button';
@@ -8,7 +8,7 @@ import { Info } from '../components/Info';
 
 export const Details = () => {
   const { name } = useParams();
-  const { push, goBack } = useHistory();
+  const navigate = useNavigate();
   const [country, setCountry] = useState(null);
 
   console.log(country);
@@ -19,10 +19,10 @@ export const Details = () => {
 
   return (
     <div>
-      <Button onClick={goBack}>
+      <Button onClick={() => navigate(-1)}>
         <IoArrowBack /> Back
       </Button>
-      {country && <Info push={push} {...country} />}
+      {country && <Info push={navigate} {...country} />}
     </div>
   );
 };

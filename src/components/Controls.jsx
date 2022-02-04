@@ -1,16 +1,20 @@
-import { useState, useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import throttle from 'lodash.throttle';
 import styled from 'styled-components';
 
 import { Search } from './Search';
 import { CustomSelect } from './CustomSelect';
+import { selectControls } from '../store/controls/controls-selectors';
+import {setRegion, setSearch} from '../store/controls/controls-actions';
 
-const options = [
-  { value: 'Africa', label: 'Africa' },
-  { value: 'America', label: 'America' },
-  { value: 'Asia', label: 'Asia' },
-  { value: 'Europe', label: 'Europe' },
-  { value: 'Oceania', label: 'Oceania' },
-];
+const optionsMap = {
+  'Africa': { value: 'Africa', label: 'Africa' },
+  'America': { value: 'America', label: 'America' },
+  'Asia': { value: 'Asia', label: 'Asia' },
+  'Europe': { value: 'Europe', label: 'Europe' },
+  'Oceania': { value: 'Oceania', label: 'Oceania' },
+}
+const options = Object.values(optionsMap);
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,27 +28,27 @@ const Wrapper = styled.div`
   }
 `;
 
-export const Controls = ({ onSearch }) => {
-  const [search, setSearch] = useState('');
-  const [region, setRegion] = useState('');
+export const Controls = () => {
+  const dispatch = useDispatch();
+  const {search, region} = useSelector(selectControls);
 
-  useEffect(() => {
-    const regionValue = region?.value || '';
-    onSearch(search, regionValue);
-
-    // eslint-disable-next-line
-  }, [search, region]);
+  const handleSearch = throttle((str) => {
+    dispatch(setSearch(str));
+  }, 300)
+  const handleRegion = (reg) => {
+    dispatch(setRegion(reg?.value || ''));
+  }
 
   return (
     <Wrapper>
-      <Search search={search} setSearch={setSearch} />
+      <Search search={search} setSearch={handleSearch} />
       <CustomSelect
         options={options}
         placeholder="Filter by Region"
         isClearable
         isSearchable={false}
-        value={region}
-        onChange={setRegion}
+        value={optionsMap[region]}
+        onChange={handleRegion}
       />
     </Wrapper>
   );
