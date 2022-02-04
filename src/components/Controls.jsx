@@ -1,9 +1,9 @@
 import {useDispatch, useSelector} from 'react-redux';
-import throttle from 'lodash.throttle';
 import styled from 'styled-components';
 
 import { Search } from './Search';
 import { CustomSelect } from './CustomSelect';
+
 import { selectControls } from '../store/controls/controls-selectors';
 import {setRegion, setSearch} from '../store/controls/controls-actions';
 
@@ -32,9 +32,9 @@ export const Controls = () => {
   const dispatch = useDispatch();
   const {search, region} = useSelector(selectControls);
 
-  const handleSearch = throttle((str) => {
+  const handleSearch = (str) => {
     dispatch(setSearch(str));
-  }, 500, {leading: false})
+  }
   const handleRegion = (reg) => {
     dispatch(setRegion(reg?.value || ''));
   }
