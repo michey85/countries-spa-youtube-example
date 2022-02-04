@@ -108,10 +108,12 @@ export const Info = (props) => {
   const [neighbors, setNeighbors] = useState([]);
 
   useEffect(() => {
-    if (borders.length)
+    if (borders.length) {
       axios
         .get(filterByCode(borders))
-        .then(({ data }) => setNeighbors(data.map((c) => c.name)));
+        .then(({ data }) => setNeighbors(data.map((c) => c.name)))
+        .catch(console.log)
+    }
   }, [borders]);
 
   return (

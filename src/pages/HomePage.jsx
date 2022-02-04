@@ -21,7 +21,8 @@ export const HomePage = () => {
   useEffect(() => {
     if (!qty)
       dispatch(loadCoutries());
-  }, [dispatch, qty]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [qty]);
 
   return (
     <>
