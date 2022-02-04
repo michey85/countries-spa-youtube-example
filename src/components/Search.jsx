@@ -30,11 +30,11 @@ const Input = styled.input.attrs({
   background-color: var(--colors-ui-base);
 `;
 
-export const Search = ({ search, setSearch }) => {
+export const Search = ({ setSearch }) => {
   return (
     <InputContainer>
       <IoSearch />
-      <Input onChange={(e) => setSearch(e.target.value)} value={search} />
+      <Input onChange={(e) => setSearch(e.target.value)} />
     </InputContainer>
   );
 };

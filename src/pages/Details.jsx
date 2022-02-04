@@ -22,6 +22,7 @@ export const Details = () => {
     return () => {
       dispatch(clearDetails());
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name]);
 
   return (

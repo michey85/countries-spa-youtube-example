@@ -1,6 +1,3 @@
-import axios from 'axios';
-import { ALL_COUNTRIES } from '../../config';
-
 export const SET_COUNTRIES = '@@country/SET_COUNTRIES';
 export const SET_LOADING = '@@country/SET_LOADING';
 export const SET_ERROR = '@@country/SET_ERROR';
@@ -19,10 +16,10 @@ export const setError = (err) => ({
   payload: err,
 });
 
-export const loadCoutries = () => (dispatch) => {
+export const loadCoutries = () => (dispatch, _, {client, api}) => {
   dispatch(setLoading());
 
-  axios.get(ALL_COUNTRIES)
+  client.get(api.ALL_COUNTRIES)
     .then(({ data }) => dispatch(setCountries(data)))
     .catch((err) => dispatch(setError(err.message)));
 };

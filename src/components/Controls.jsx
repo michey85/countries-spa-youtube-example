@@ -34,7 +34,7 @@ export const Controls = () => {
 
   const handleSearch = throttle((str) => {
     dispatch(setSearch(str));
-  }, 300)
+  }, 500, {leading: false})
   const handleRegion = (reg) => {
     dispatch(setRegion(reg?.value || ''));
   }
