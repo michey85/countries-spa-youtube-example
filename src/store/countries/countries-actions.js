@@ -17,7 +17,6 @@ export const setError = (err) => ({
 })
 
 export const loadCountries = () => (dispatch, _, {client, api}) => {
-  console.log(loadCountries)
   dispatch(setLoading());
 
   client.get(api.ALL_COUNTRIES)
