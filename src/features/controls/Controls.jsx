@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { Search } from './Search';
 import { CustomSelect } from './CustomSelect';
 
-import { selectControls } from '../store/controls/controls-selectors';
-import {setRegion, setSearch} from '../store/controls/controls-actions';
+import {setRegion, setSearch, selectControls} from './controls-slice';
 
 const optionsMap = {
   'Africa': { value: 'Africa', label: 'Africa' },

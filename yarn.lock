@@ -3149,6 +3149,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@reduxjs/toolkit@npm:^1.7.2":
+  version: 1.7.2
+  resolution: "@reduxjs/toolkit@npm:1.7.2"
+  dependencies:
+    immer: ^9.0.7
+    redux: ^4.1.2
+    redux-thunk: ^2.4.1
+    reselect: ^4.1.5
+  peerDependencies:
+    react: ^16.9.0 || ^17.0.0 || 18.0.0-beta
+    react-redux: ^7.2.1 || ^8.0.0-beta
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-redux:
+      optional: true
+  checksum: 41c17c660f7c95d776658b9a101f9803c37589b2c08861e90283abe5fab70f99c37af064fae0c5b7501f67308946fa072504f6a801e272f157b9f7427a5e571e
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-babel@npm:^5.2.0":
   version: 5.3.0
   resolution: "@rollup/plugin-babel@npm:5.3.0"
@@ -5528,6 +5548,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "countries-flags@workspace:."
   dependencies:
+    "@reduxjs/toolkit": ^1.7.2
     axios: ^0.22.0
     lodash.throttle: ^4.1.1
     react: ^17.0.2
@@ -5537,8 +5558,6 @@ __metadata:
     react-router-dom: ^6.2.1
     react-scripts: ^5.0.0
     react-select: ^5.1.0
-    redux: ^4.1.2
-    redux-thunk: ^2.4.1
     styled-components: ^5.3.1
   languageName: unknown
   linkType: soft
@@ -11690,6 +11709,13 @@ __metadata:
   version: 1.0.0
   resolution: "requires-port@npm:1.0.0"
   checksum: eee0e303adffb69be55d1a214e415cf42b7441ae858c76dfc5353148644f6fd6e698926fc4643f510d5c126d12a705e7c8ed7e38061113bdf37547ab356797ff
+  languageName: node
+  linkType: hard
+
+"reselect@npm:^4.1.5":
+  version: 4.1.5
+  resolution: "reselect@npm:4.1.5"
+  checksum: 54c13c1e795b2ea70cba8384138aebe78adda00cbea303cc94b64da0a70d74c896cc9a03115ae38b8bff990e7a60dcd6452ab68cbec01b0b38c1afda70714cf0
   languageName: node
   linkType: hard
 
